@@ -1,0 +1,13 @@
+# The Root Query for the application
+type Query {
+    allBooks: [Book]
+    findOne(id: ID!): Book
+    recentPosts(count: Int, offset: Int): [Post]!
+    getBookByName(filter: BookFilter): Book
+}
+
+type Mutation {
+    newBook(input: BookInput): NewBook
+    deleteBook(input:DeleteBookInput): DeletedBook
+    createPost(title: String!, text: String!, category: String, authorId: ID!) : Post!
+}

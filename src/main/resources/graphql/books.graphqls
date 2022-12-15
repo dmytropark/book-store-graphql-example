@@ -1,0 +1,52 @@
+type Book {
+    id: ID!
+    title: String
+    pages: Int
+    rating: Rating
+    pageCount: Int
+    authorsSorted(order:ListOrder): [Author]
+    authors: [Author]
+}
+
+enum ListOrder {
+    ASC,
+    DESC
+}
+
+type Rating {
+    rating: String
+    star: String
+}
+
+type Author {
+    id: ID!
+    firstName: String
+    lastName: String
+    bookId: Int
+}
+
+type NewBook {
+    id: Int
+    name: String
+    pageCount: Int
+}
+
+input BookFilter{
+    name: String
+}
+
+input BookInput {
+    name: String!
+    pageCount: Int
+}
+
+
+input DeleteBookInput{
+    id:Int!
+}
+
+type DeletedBook{
+    id: Int
+    name: String
+    pageCount: Int
+}
